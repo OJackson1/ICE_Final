@@ -77,34 +77,21 @@ public class ArtistServiceIntegrationTest {
         .isEqualTo(this.mapToDTO(this.testArtistWithId));
     }
 
-//    @Test
-//    void ReadAllArtistTest() {
-//        assertThat(this.service.read())
-//                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
-//                        .collect(Collectors.toList()));
-//    }
-    
-//    @Test
-//    void testUpdate() {
-//    	ArtistDTO newArtist = new ArtistDTO(id, "Proclaimers");
-//    	ArtistDTO updatedArtist = new ArtistDTO(this.id, newArtist.getName());
-//
-//       assertThat(updatedArtist)
-//            .isEqualTo(this.service.update(newArtist, this.id));
-//        ArtistDTO updatedDTO = new ModelMapper().map(updatedArtist, ArtistDTO.class);
-//
-//
-//        when(this.repo.findById(this.id)).thenReturn(Optional.of(this.testArtistWithId));
-//        when(this.modelMapper.map(updatedArtist, ArtistDTO.class)).thenReturn(updatedDTO);
-//
-//        // You NEED to configure a .equals() method in Booking.java for this to work
-//        when(this.repo.save(updatedArtist)).thenReturn(updatedArtist);
-//
-//        assertEquals(updatedDTO, this.service.update(newArtist, this.id));
-//
-//        verify(this.repo, times(1)).findById(1L);
-//        verify(this.repo, times(1)).save(updatedArtist);
-//    }
+    @Test
+    void ReadAllArtistTest() {
+        assertThat(this.service.read())
+                .isEqualTo(Stream.of(this.mapToDTO(testArtistWithId))
+                        .collect(Collectors.toList()));
+    }
+  
+    @Test
+    void testUpdate() {
+    	ArtistDTO newArtist = new ArtistDTO(id, "Foals");
+    	ArtistDTO updatedArtist = new ArtistDTO(this.id, newArtist.getName());
+
+        assertThat(updatedArtist)
+            .isEqualTo(this.service.update(newArtist, this.id));;
+    }
     
     @Test
     void DeleteTest() {

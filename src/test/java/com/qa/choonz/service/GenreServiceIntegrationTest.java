@@ -87,6 +87,15 @@ public class GenreServiceIntegrationTest {
     }
     
     @Test
+    void testUpdate() {
+    	GenreDTO newGenre = new GenreDTO(id, "Rock");
+    	GenreDTO updatedGenre = new GenreDTO(this.id, newGenre.getName());
+
+        assertThat(updatedGenre)
+            .isEqualTo(this.service.update(newGenre, this.id));
+    }
+    
+    @Test
     void DeleteTest() {
         assertThat(this.service.delete(this.id)).isTrue();
     }

@@ -87,6 +87,15 @@ public class AlbumServiceIntegrationTest {
     }
     
     @Test
+    void testUpdate() {
+    	AlbumDTO newAlbum = new AlbumDTO(id, "Screamadelica");
+    	AlbumDTO updatedAlbum = new AlbumDTO(this.id, newAlbum.getName());
+
+        assertThat(updatedAlbum)
+            .isEqualTo(this.service.update(newAlbum, this.id));
+    }
+    
+    @Test
     void DeleteTest() {
         assertThat(this.service.delete(this.id)).isTrue();
     }
