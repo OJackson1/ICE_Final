@@ -60,6 +60,16 @@ public class PlaylistDTOTest {
 			
 			assertThat(newArtDTO instanceof PlaylistDTO);		
 	}
+	
+	@Test
+	public void threeArguConstructorTest() {
+			PlaylistDTO newArtDTO = new PlaylistDTO(
+					this.name,
+					this.description,
+					this.artwork);	
+			
+			assertThat(newArtDTO instanceof PlaylistDTO);		
+	}
 		
 	@Test
 	public void fourArguConstructorTest() {

@@ -19,12 +19,18 @@ public class GenreDTO {
         // TODO Auto-generated constructor stub
     }
 
-
-
     public GenreDTO(Long id, String name) {
     	super();
     	this.id = id;
     	this.name = name;
+    }
+    
+    public GenreDTO(Long id, String name, String description) {
+
+        super();
+        this.id = id;
+        this.name = name;
+        this.description = description;
     }
     
     public GenreDTO(Long id, String name, String description, List<AlbumDTO> albums) {
