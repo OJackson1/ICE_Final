@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 public class PlaylistTest {
 	
 	Playlist testPl;
+	Playlist testPl2;
 	final Long id = 1l;
 	final String name = "Party";
 	final String desc = "Rock";
@@ -31,6 +32,14 @@ public class PlaylistTest {
 	void init() {
 		this.tracks = new ArrayList<Track>();
 		this.testPl = new Playlist(
+				this.id, 
+				this.name, 
+				this.desc, 
+				this.artwork,
+				this.tracks,
+				null);
+		
+		this.testPl2 = new Playlist(
 				this.id, 
 				this.name, 
 				this.desc, 
@@ -125,7 +134,13 @@ public class PlaylistTest {
 	@Test
 	public void checkEquality() {
 	     assertTrue(testPl.equals(testPl));
-	    }
+	}
+ 
+    @Test
+    public void otherIdDifferent() {
+        testPl2.setId(2L);
+        assertFalse(testPl.equals(testPl2));
+    }
 	
 	@Test
 	public void getSetIdTest() {

@@ -16,6 +16,7 @@ public class ArtistTest {
 	
 
 		Artist testArtist;
+		Artist testArtist2;
 		final Long id = 1l;
 		final String name = "Fleetwood Mac";
 		List<Album> testAlbums;
@@ -30,6 +31,11 @@ public class ArtistTest {
 
 			this.testAlbums = new ArrayList<Album>();
 			this.testArtist = new Artist(
+					this.id, 
+					this.name, 
+					this.testAlbums);
+			
+			this.testArtist2 = new Artist(
 					this.id, 
 					this.name, 
 					this.testAlbums);
@@ -114,7 +120,18 @@ public class ArtistTest {
 		@Test
 		public void checkEquality() {
 		     assertTrue(testArtist.equals(testArtist));
-		    }
+		}
+		
+		@Test
+	    public void checkEqualityBetweenDifferentObjects() {
+	        assertTrue(testArtist.equals(testArtist2));
+	    }
+	 
+	 @Test
+	    public void otherIdDifferent() {
+	        testArtist2.setId(2L);
+	        assertFalse(testArtist.equals(testArtist2));
+	    }
 		
 		
 		@Test

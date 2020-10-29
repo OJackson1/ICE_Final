@@ -15,6 +15,7 @@ public class GenreTest {
 	
 
 		Genre testGenre;
+		Genre testGenre2;
 		final Long id = 1l;
 		final String name = "Tunes";
 		final String description = "Heavy";
@@ -28,6 +29,12 @@ public class GenreTest {
 		void init() {
 			this.albums = new ArrayList<Album>();
 			this.testGenre = new Genre(
+					this.id, 
+					this.name, 
+					this.description, 
+					this.albums);
+			
+			this.testGenre2 = new Genre(
 					this.id, 
 					this.name, 
 					this.description, 
@@ -97,7 +104,18 @@ public class GenreTest {
 		@Test
 		public void checkEquality() {
 		     assertTrue(testGenre.equals(testGenre));
-		    }
+		}
+		
+		@Test
+	    public void checkEqualityBetweenDifferentObjects() {
+	        assertTrue(testGenre.equals(testGenre2));
+	    }
+	 
+	    @Test
+	    public void otherIdDifferent() {
+	        testGenre2.setId(2L);
+	        assertFalse(testGenre.equals(testGenre2));
+	    }
 		
 		@Test
 		void GetIdTest() {

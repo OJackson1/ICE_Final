@@ -69,7 +69,7 @@ public class TrackServiceIntegrationTest {
 
 	    @Test
 	    void testUpdate() {
-	    	TrackDTO newTrack = new TrackDTO(null, "North American Scum");
+	    	TrackDTO newTrack = new TrackDTO(id, "North American Scum");
 	    	TrackDTO updatedTrack = new TrackDTO(this.id, newTrack.getName());
 
 	        assertThat(updatedTrack)

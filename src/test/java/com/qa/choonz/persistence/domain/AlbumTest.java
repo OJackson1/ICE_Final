@@ -15,6 +15,7 @@ public class AlbumTest {
 	
 
 		Album testAlbum;
+		Album testAlbum2;
 		final Long id = 1l;
 		final String name = "Rumours";
 		final String cover = "no";
@@ -28,6 +29,14 @@ public class AlbumTest {
 		void init() {
 			this.tracks = new ArrayList<Track>();
 			this.testAlbum = new Album(
+					this.id, 
+					this.name, 
+					this.tracks, 
+					null, 
+					null, 
+					this.cover);
+			
+			this.testAlbum2 = new Album(
 					this.id, 
 					this.name, 
 					this.tracks, 
@@ -88,6 +97,17 @@ public class AlbumTest {
 		@Test
 		public void checkEquality() {
 		     assertTrue(testAlbum.equals(testAlbum));
+		    }
+		
+		 @Test
+		    public void checkEqualityBetweenDifferentObjects() {
+		        assertTrue(testAlbum.equals(testAlbum2));
+		    }
+		 
+		 @Test
+		    public void otherIdDifferent() {
+		        testAlbum2.setId(2L);
+		        assertFalse(testAlbum.equals(testAlbum2));
 		    }
 		  
 		
